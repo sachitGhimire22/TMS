@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Task Manager
+{% endblock %}
+
+{% block content %}
+    <h1>Tasks</h1>
+
+    <a href="{% url 'task_create' %}" class="btn btn-primary">Add Task</a>
+
+    <div class="container row gap-3">
+        {% for task in tasks %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ task.title }}</h5>
+                    <p>user: {{task.user}}</p>
+                    <p>Complete Status: {{task.complete}}</p>
+                    <p>Task Creation Date: {{task.created}}</p>
+                    
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No tasks available.</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}
