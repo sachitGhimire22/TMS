@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import tasks
 from .forms import TaskForm
 from django.shortcuts import get_object_or_404,redirect
+from django.urls import reverse
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -17,12 +19,13 @@ def tasks_list(request):
 # creating the tasks
 
 def task_create(request):
-    form = TaskForm()
     if request.method == 'POST':
         form = TaskForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('tasks_list')
+            messages.success(request, "Task created successfully!")  # Optional feedback
+            return redirect(reverse('tasks_list'))  # More maintainable redirection
     else:
         form = TaskForm()
-    return render(request, 'tasks/task_form.html', {'form':form})
+    
+    return render(request, 'tasks/task_form.html', {'form': form})
