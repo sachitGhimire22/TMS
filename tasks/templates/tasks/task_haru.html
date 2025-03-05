@@ -5,11 +5,22 @@ Task Manager
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="item1"> <h1>Tasks</h1>
 
-        <a href="{% url 'task_create' %}" class="btn btn-primary">Add Task</a></div>
-    <div class="item2 container row gap-3 "> 
+<div class="container text-center">
+    <div class="row">
+        {% comment %} col1 {% endcomment %}
+      <div class="col">
+        Column
+      </div>
+      {% comment %} col2 {% endcomment %}
+      <div class="col">
+        {% comment %} nav  {% endcomment %}
+        <div class="item1"> <h1>Tasks</h1>
+
+            <a href="{% url 'task_create' %}" class="btn btn-primary">Add Task</a></div>
+      </div>
+      {% comment %} content {% endcomment %}
+      <div class="item2 container row gap-3 "> 
         {% for task in tasks %}
         <div class="col-md-4">
             <div class="card">
@@ -24,7 +35,14 @@ Task Manager
         </div>
     {% empty %}
         <p>No tasks available.</p>
-    {% endfor %}</div>
+    {% endfor %}
+</div>
+    </div>
+  </div>
+
+
+
+
  
 
 

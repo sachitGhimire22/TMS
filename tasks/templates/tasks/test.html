@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Task Manager
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar p-3 vh-100">
+            <h4 class="text-center">Menu</h4>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="#" class="nav-link sidebar-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link sidebar-link">Tasks</a></li>
+                <li class="nav-item"><a href="#" class="nav-link sidebar-link">Users</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 content p-4">
+            <nav class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-dark">Task Manager</h2>
+                <button class="btn btn-primary">Add Task</button>
+            </nav>
+            
+            <div class="task-list row g-3">
+                <div class="col-md-6">
+                    <div class="task card p-3 shadow-sm">
+                        <h5 class="task-title">Task 1</h5>
+                        <p class="task-user">User: <strong>User 1</strong></p>
+                        <p class="task-status">Complete Status: <strong>True</strong></p>
+                        <p class="task-date">Task Creation Date: 2022-01-01</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="task card p-3 shadow-sm">
+                        <h5 class="task-title">Task 2</h5>
+                        <p class="task-user">User: <strong>User 2</strong></p>
+                        <p class="task-status">Complete Status: <strong>False</strong></p>
+                        <p class="task-date">Task Creation Date: 2022-02-01</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+    * {
+        font-family: 'Outfit', sans-serif;
+    }
+    .sidebar {
+        background: #1e293b;
+        color: #e2e8f0;
+        width: 240px;
+    }
+    .sidebar h4 {
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .sidebar-link {
+        padding: 12px;
+        border-radius: 6px;
+        transition: background 0.3s ease, color 0.3s ease;
+        color: #e2e8f0;
+    }
+    .sidebar-link:hover {
+        background: #334155;
+        color: #ffffff;
+    }
+    .content {
+        background: #f8fafc;
+    }
+    .task-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .task {
+        border-radius: 8px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        transition: transform 0.2s ease;
+        padding: 16px;
+    }
+    .task:hover {
+        transform: scale(1.02);
+    }
+    .task-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1e293b;
+    }
+    .task-user, .task-status, .task-date {
+        font-size: 14px;
+        color: #64748b;
+    }
+</style>
+{% endblock %}

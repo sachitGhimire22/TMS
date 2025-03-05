@@ -13,7 +13,7 @@ def index(request):
 
 def tasks_list(request):
     task_list = tasks.objects.all()  # Retrieve all tasks from the database
-    return render(request, 'tasks/task_haru.html', {'tasks': task_list})  # Pass tasks to the template
+    return render(request, 'tasks/test.html', {'tasks': task_list})  # Pass tasks to the template
 
 
 # creating the tasks
